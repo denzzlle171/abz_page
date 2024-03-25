@@ -1,0 +1,20 @@
+.button{
+  height: 34px;
+  width: 100px;
+  background-color:  #F4E041;
+  border: none;
+  border-radius: 80px;
+  line-height: 26px;
+  display: block;
+  margin: auto;
+}
+
+.button:hover {
+  background-color: #FFE302;
+}
+
+.button:disabled{
+ color: #fff;
+ background-color: #B4B4B4;
+ cursor: not-allowed;
+}

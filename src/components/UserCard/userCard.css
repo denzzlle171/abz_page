@@ -1,0 +1,22 @@
+.usersCard{
+  display: flex;
+  flex-direction: column;
+  max-width: 370px;
+  min-width: 280px;
+  height: 254px;
+  background-color: #fff;
+  border-radius: 10px;
+  border:none;
+  padding: 20px;
+  justify-content: space-between;
+
+}
+.cardItem{
+  margin: 0;
+}
+.photo{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
