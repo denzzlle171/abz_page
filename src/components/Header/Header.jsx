@@ -1,6 +1,7 @@
 import Logo from '../../img/Logo.svg';
 import './header.css';
-import {Button} from '../Button/Button.jsx'
+import { Button } from '../Button/Button.jsx'
+import {scrollToSection} from'../../util/helper.js'
 
 export const Header = () => {
   return (
@@ -8,10 +9,10 @@ export const Header = () => {
       <div className="header__content">
         <img src={Logo} alt="logo" />
         <div className="header__buttons">
-          <Button>Users</Button>
-          <Button>Sign up</Button>
+          <Button onClick={() => scrollToSection('users')}>Users</Button>
+          <Button onClick={() => scrollToSection('singUp')}>Sign up</Button>
         </div>
       </div>
-     </div>
+    </div>
   );
 };

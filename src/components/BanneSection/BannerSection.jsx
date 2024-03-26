@@ -1,6 +1,7 @@
 
 import './bannerSection.css';
 import { Button } from '../Button/Button.jsx';
+import { scrollToSection } from '../../util/helper.js';
 
 export const BannerSection = () => {
   return (
@@ -16,7 +17,7 @@ export const BannerSection = () => {
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </p>
-        <Button>Sign up</Button>
+        <Button onClick={() => scrollToSection('singUp')}>Sign up</Button>
       </div>
     </section>
   );

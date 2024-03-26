@@ -26,7 +26,7 @@ export const UserList = () => {
           setUsers(
             users ? (prevUsers) => [...prevUsers, ...data.users] : data.users
           );
-          console.log(data);
+
           setTotalpage(data.total_pages);
           setLoading(false);
        
@@ -43,14 +43,14 @@ export const UserList = () => {
  };
   
   return (
-    <section className="users">
+    <section className="users" id="users">
       <h2 className="users__title">Working with GET request</h2>
       <ul className="users__list">
         {users && users.map((user) => <UserCard key={user.id} user={user} />)}
       </ul>
 
       {loading && <Spinner />}
-      
+
       <Button
         addClassName="users__btn"
         onClick={showMoreUsers}
