@@ -7,8 +7,8 @@ import { PhotoUpload } from '../PhotoUpload/PhotoUpload.jsx';
 
 import React, { useRef } from 'react';
 
-export const Form = () => {
-  const bottomRef = useRef(null); 
+export const Form = ({ setUsers, setLoading, setPage }) => {
+  const bottomRef = useRef(null);
 
   const [text, setText] = useState('');
   const [email, setEmail] = useState('');
@@ -106,8 +106,7 @@ export const Form = () => {
       setPhoneError('');
     }
   };
-
-  //🎈
+  //submit form
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -139,6 +138,10 @@ export const Form = () => {
         setTel('');
         setPosition('');
         setPhoto(null);
+
+        setUsers(null);
+        setPage(1)
+        setLoading(true);
 
         setShowSuccess(true);
       } else {
