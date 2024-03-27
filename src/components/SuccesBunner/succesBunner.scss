@@ -2,10 +2,12 @@
   &__title {
     text-align: center;
     font-size: 40px;
+    margin-top: 0;
   }
 
   &__img {
     display: block;
     margin: auto;
+    margin-bottom: 50px;
   }
 }

@@ -2,11 +2,14 @@ import './form.scss';
 import { Button } from '../Button/Button.jsx';
 import { useState, useEffect } from 'react';
 import { PositionList } from '../PositionList/PositionList.jsx';
-import { SuccesBunner } from '../SuccesBunner/SuccesBunner.jsx'
-import {PhotoUpload} from '../PhotoUpload/PhotoUpload.jsx'
+import { SuccesBunner } from '../SuccesBunner/SuccesBunner.jsx';
+import { PhotoUpload } from '../PhotoUpload/PhotoUpload.jsx';
 
+import React, { useRef } from 'react';
 
 export const Form = () => {
+  const bottomRef = useRef(null); 
+
   const [text, setText] = useState('');
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
@@ -14,7 +17,7 @@ export const Form = () => {
   const [photo, setPhoto] = useState(null);
   const [token, setToken] = useState('');
 
-  const [showSuccess, setShowSuccess] = useState(true);
+  const [showSuccess, setShowSuccess] = useState('');
 
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -37,6 +40,12 @@ export const Form = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
+
+  useEffect(() => {
+    if (showSuccess) {
+      bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, [showSuccess]);
 
   const handleFileChange = (event) => {
     const file = event.target.files;
@@ -169,7 +178,7 @@ export const Form = () => {
           </label>
           {nameError && <p className="error-message">{nameError}</p>}
         </div>
-        
+
         <div className="input--wrapper">
           <input
             type="email"
@@ -215,10 +224,9 @@ export const Form = () => {
         <Button addClassName="form__btn" disabled={disable}>
           Sign up
         </Button>
-
       </form>
 
-      {showSuccess && <SuccesBunner />}
+      {showSuccess && <SuccesBunner bottomRef={bottomRef} />}
     </div>
   );
 };
