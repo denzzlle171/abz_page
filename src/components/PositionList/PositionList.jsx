@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './positionList.css';
+import './positionList.scss';
 
 export const PositionList = ({ handlePositionChange }) => {
   const [positions, setPositions] = useState(null);
@@ -29,11 +29,11 @@ export const PositionList = ({ handlePositionChange }) => {
               <input
                 type="radio"
                 name="option"
-                className="real-radio"
+                className="options__real-radio"
                 value={position.id}
                 onChange={handlePositionChange}
               />
-              <span className="castom-radio"></span>
+              <span className="options__castom-radio"></span>
               {position.name}
             </label>
           );

@@ -1,0 +1,47 @@
+@import '../../util/variable.scss';
+
+.usersCard {
+  display: flex;
+  flex-direction: column;
+  max-width: 370px;
+  min-width: 280px;
+  height: 254px;
+  background-color: $background-color-main;
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  justify-content: space-between;
+  position: relative;
+
+  &__Item {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  &__photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+}
+
+.tip::after {
+  content: attr(data-text);
+  position: absolute;
+  display: none;
+  background-color: $primary-color;
+  color: $color-text-white;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 999;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.tip:hover::after {
+  display: block;
+}

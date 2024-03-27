@@ -1,4 +1,4 @@
-import './button.css'
+import './button.scss'
 
 export const Button = ({ children, addClassName, disabled, onClick }) => {
   const combineClassName = `button ${addClassName}`;

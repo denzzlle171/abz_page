@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '../Button/Button.jsx';
 import { UserCard } from '../UserCard/UserCard.jsx'
 import {Spinner} from '../Spinner/Spinner.jsx'
-import './userList.css';
+import './userList.scss';
 
 
 export const UserList = () => {

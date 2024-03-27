@@ -1,5 +1,5 @@
 import Logo from '../../img/Logo.svg';
-import './header.css';
+import './header.scss';
 import { Button } from '../Button/Button.jsx'
 import {scrollToSection} from'../../util/helper.js'
 

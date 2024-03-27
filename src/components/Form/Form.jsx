@@ -1,8 +1,10 @@
-import './form.css';
+import './form.scss';
 import { Button } from '../Button/Button.jsx';
 import { useState, useEffect } from 'react';
 import { PositionList } from '../PositionList/PositionList.jsx';
-import succes from '../../img/success-image.png';
+import { SuccesBunner } from '../SuccesBunner/SuccesBunner.jsx'
+import {PhotoUpload} from '../PhotoUpload/PhotoUpload.jsx'
+
 
 export const Form = () => {
   const [text, setText] = useState('');
@@ -12,7 +14,7 @@ export const Form = () => {
   const [photo, setPhoto] = useState(null);
   const [token, setToken] = useState('');
 
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(true);
 
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -58,7 +60,6 @@ export const Form = () => {
     setPosition(event.target.value);
   };
 
-  //Error
   const handleNameChange = (e) => {
     const { value } = e.target;
     setText(value);
@@ -69,7 +70,7 @@ export const Form = () => {
       setNameError('');
     }
   };
-  //
+
   const handleEmailChange = (e) => {
     const { value } = e.target;
     setEmail(value);
@@ -83,7 +84,7 @@ export const Form = () => {
       setEmailError('');
     }
   };
-  //
+
   const handlePhoneChange = (e) => {
     const { value } = e.target;
     setTel(value);
@@ -110,10 +111,6 @@ export const Form = () => {
       formData.append('photo', photo[0]);
     }
 
-    // formData.forEach((value, key) => {
-    //   console.log(`${key}: ${value}`);
-    // });
-
     try {
       const response = await fetch(
         'https://frontend-test-assignment-api.abz.agency/api/v1/users',
@@ -134,8 +131,7 @@ export const Form = () => {
         setPosition('');
         setPhoto(null);
 
-        setShowSuccess(true)
-        
+        setShowSuccess(true);
       } else {
         console.error('Failed to submit data:', response.statusText);
       }
@@ -157,13 +153,12 @@ export const Form = () => {
 
   return (
     <div className="section-form" id="singUp">
-      <h2 className="form-form__title">Working with POST request</h2>
+      <h2 className="section-form__title">Working with POST request</h2>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input--wrapper">
           <input
             type="text"
             name="name"
-            // className={`form__input ${nameError ? 'error' : ''}`}
             className={`${nameError ? 'error' : ''}`}
             placeholder="Your name"
             value={text}
@@ -174,6 +169,7 @@ export const Form = () => {
           </label>
           {nameError && <p className="error-message">{nameError}</p>}
         </div>
+        
         <div className="input--wrapper">
           <input
             type="email"
@@ -207,37 +203,22 @@ export const Form = () => {
         ) : (
           <p className="prompting-tel">+38 (XXX) XXX - XX - XX</p>
         )}
-
         <h4 className="title-select">Select your position</h4>
         <PositionList handlePositionChange={handlePositionChange} />
-        <label htmlFor="photoUpload" className="photo-upload">
-          <div className={`photo-upload__fild ${photoError ? 'error' : ''}`}>
-            <p className={`photo-upload__btn ${photoError ? 'error' : ''}`}>
-              Upload
-            </p>
-            {photo && photo.length ? photo[0].name : 'Upload your photo'}
-          </div>
-          <input
-            id="photoUpload"
-            type="file"
-            name="file"
-            accept="image/jpeg, image/jpg"
-            className="photo-upload__real-btn"
-            onChange={handleFileChange}
-          />
-        </label>
-        {photoError && <p className="error-message">{photoError}</p>}
+
+        <PhotoUpload
+          photo={photo}
+          photoError={photoError}
+          handleFileChange={handleFileChange}
+        />
+
         <Button addClassName="form__btn" disabled={disable}>
           Sign up
         </Button>
+
       </form>
 
-      {showSuccess && (
-        <div>
-          <p className="success__title">User successfully registered</p>
-          <img src={succes} alt="success" className="success__img" />
-        </div>
-      )}
+      {showSuccess && <SuccesBunner />}
     </div>
   );
 };

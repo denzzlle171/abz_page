@@ -1,5 +1,5 @@
 
-import './bannerSection.css';
+import './bannerSection.scss';
 import { Button } from '../Button/Button.jsx';
 import { scrollToSection } from '../../util/helper.js';
 

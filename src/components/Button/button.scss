@@ -1,0 +1,22 @@
+@import '../../util/variable.scss';
+
+.button {
+  height: 34px;
+  width: 100px;
+  background-color: $button-color-activ;
+  border: none;
+  border-radius: 80px;
+  line-height: 26px;
+  display: block;
+  margin: auto;
+
+  &:hover {
+    background-color:$button-color-hover;
+  }
+
+  &:disabled {
+    color: $color-text-white;
+    background-color: $button-color-disabled ;
+    cursor: not-allowed;
+  }
+}

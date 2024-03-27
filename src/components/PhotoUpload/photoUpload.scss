@@ -1,0 +1,38 @@
+@import '../../util/variable.scss';
+
+.photo-upload {
+  &__fild {
+    display: block;
+    position: relative;
+    border: 1px solid $element-color;
+    height: 54px;
+    line-height: 54px;
+    max-width: 380px;
+    border-radius: 4px;
+    padding-left: 99px;
+    margin: 47px 0 0;
+    color: $secondary-color-text;
+  }
+
+  &__btn {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    display: inline-block;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    height: 54px;
+
+    width: 83px;
+    border-radius: 4px 0 0 4px;
+    margin: 0;
+    text-align: center;
+  }
+  &__real-btn {
+    display: none;
+  }
+}
+
+.photo-upload .error {
+  border-color: $error-color;
+}

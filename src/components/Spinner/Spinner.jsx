@@ -1,5 +1,5 @@
 import loader from '../../img/loader.svg';
-import './spinner.css'
+import './spinner.scss'
 
 export const Spinner = () => {
   return (

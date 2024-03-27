@@ -1,0 +1,99 @@
+@import "../../util/variable.scss";
+
+.section-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+  padding: 16px;
+
+  &__title {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+.form {
+  width: 100%;
+  max-width: 380px;
+}
+
+.input--wrapper {
+  position: relative;
+}
+
+.input--wrapper label {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: $secondary-color-text;
+  background-color: $background-color-page;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input--wrapper input {
+  display: block;
+  width: 100%;
+  height: 54px;
+  border: 1px solid $element-color;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 14px 16px;
+  margin-top: 50px;
+  outline: none;
+}
+
+.input--wrapper input:focus ~ label,
+.input--wrapper input:not(:placeholder-shown) ~ label {
+  top: 0;
+}
+
+.input--wrapper input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.input--wrapper input:-moz-placeholder {
+  color: transparent;
+}
+
+.input--wrapper input::-moz-placeholder {
+  color: transparent;
+}
+
+.input--wrapper input:-ms-input-placeholder {
+  color: transparent;
+}
+
+
+.error-message {
+  position: absolute;
+  margin: 0;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 4px 16px 0;
+  color: $error-color;
+}
+
+.input--wrapper input.error {
+  border-color: $error-color;
+}
+.input--wrapper label.error {
+  color: $error-color;
+}
+
+.prompting-tel {
+  position: absolute;
+  font-size: 12px;
+  line-height: 14px;
+  color: $secondary-color-text;
+  margin: 4px 16px 0;
+}
+
+.form__btn {
+  display: block;
+  margin: 50px auto 100px;
+}
